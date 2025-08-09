@@ -1,0 +1,415 @@
+/* Integra Bar & Restaurante Design System */
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&family=Playfair+Display:wght@600;700&display=swap');
+
+/* Reset e Variáveis Globais */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  -webkit-tap-highlight-color: transparent;
+}
+
+:root {
+  --background: #e4f8f8; /* Nova cor de fundo suave */
+  --foreground: #1a1a1a;
+  --card: #ffffff;
+  --primary: #08adb4; /* Nova cor primária */
+  --primary-foreground: #ffffff;
+  --secondary: #f3f4f6;
+  --muted: #e5e7eb;
+  --muted-foreground: #6b7280;
+  --border: #e5e7eb;
+  --radius: 0.75rem;
+  --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+  --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+  --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+  --transition: all 0.2s ease-in-out;
+}
+
+body {
+  font-family: 'Roboto', sans-serif;
+  background-color: var(--background);
+  color: var(--foreground);
+  line-height: 1.6;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.container {
+    flex: 1;
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 1.5rem 1rem;
+}
+
+/* --- Cabeçalho --- */
+.header {
+  background: var(--primary);
+  padding: 1rem;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  box-shadow: var(--shadow-md);
+  text-align: center;
+}
+
+.logo {
+  width: 140px;
+  height: auto;
+  filter: brightness(0) invert(1);
+}
+
+/* --- Filtros e Busca (COM NOVO ESTILO) --- */
+.menu-controls {
+    background-color: var(--card);
+    padding: 1rem;
+    margin: 0 -1rem;
+    position: sticky;
+    top: 60px; 
+    z-index: 990;
+    border-bottom: 1px solid var(--border);
+}
+
+#searchInput {
+    width: 100%;
+    padding: 0.75rem 1rem;
+    font-size: 1rem;
+    border-radius: var(--radius);
+    border: 1px solid var(--border);
+    margin-bottom: 1rem;
+    background-color: var(--secondary);
+}
+
+.filter-container {
+    display: flex;
+    gap: 1.5rem; /* Aumentamos o espaço entre os botões */
+    overflow-x: auto;
+    padding-bottom: 0; /* Removemos o padding de baixo */
+    border-bottom: 1px solid var(--border); /* Linha cinza de fundo */
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+    overscroll-behavior-y: contain; /* Adicione esta linha */
+    touch-action: pan-x; /* Adicione esta nova linha */
+}
+.filter-container::-webkit-scrollbar {
+    display: none;
+}
+
+/* NOVO ESTILO DOS BOTÕES DE FILTRO */
+.filter-btn {
+    /* Reset dos estilos antigos */
+    background-color: transparent;
+    border: none;
+    border-radius: 0;
+    box-shadow: none;
+
+    /* Novos estilos */
+    padding: 0.75rem 0.25rem;
+    cursor: pointer;
+    font-size: 0.9rem;
+    font-weight: 500;
+    white-space: nowrap;
+    transition: color 0.2s ease-in-out;
+    color: var(--muted-foreground); /* Cor padrão do texto (cinza) */
+    text-transform: uppercase;
+    position: relative; /* Necessário para a barrinha */
+}
+
+.filter-btn:hover {
+    color: var(--primary); /* Ao passar o mouse, fica vermelho */
+}
+
+.filter-btn.active {
+    /* Reset dos estilos antigos */
+    transform: none; 
+    background-color: transparent;
+    box-shadow: none;
+    
+    /* Novo estilo do botão ativo */
+    color: var(--foreground); /* Texto fica mais escuro */
+}
+
+/* A BARRINHA INDICADORA */
+.filter-btn.active::after {
+    content: '';
+    position: absolute;
+    bottom: -1px; /* Posiciona sobre a borda cinza */
+    left: 0;
+    width: 100%;
+    height: 3px; /* Espessura da barra */
+    background-color: var(--primary); /* Cor da barra (vermelho) */
+}
+
+/* --- Cardápio --- */
+#menuContent {
+    padding-top: 1rem;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+}
+
+.menu-section {
+  background: var(--card);
+  padding: 1.5rem;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-md);
+  border: 1px solid var(--border);
+}
+
+.menu-section h2 {
+  font-family: 'Playfair Display', serif;
+  color: var(--primary);
+  font-size: 1.75rem;
+  font-weight: 700;
+  margin-bottom: 1.5rem;
+  padding-bottom: 0.75rem;
+  border-bottom: 2px solid var(--border);
+}
+
+.menu-section .items-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1rem; /* Espaçamento menor entre os itens */
+}
+
+/* LAYOUT COMPACTO DO ITEM DO CARDÁPIO */
+.menu-item {
+    display: flex;
+    flex-direction: row; /* Imagem sempre ao lado */
+    align-items: center;
+    gap: 1rem;
+    padding: 0.75rem;
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    transition: var(--transition);
+}
+.menu-item:hover {
+    border-color: #ddd;
+    box-shadow: var(--shadow-sm);
+}
+
+.item-image-wrapper {
+    width: 100px;  /* Largura fixa e menor */
+    height: 100px; /* Altura fixa e menor */
+    flex-shrink: 0; /* Impede que a imagem encolha */
+    border-radius: calc(var(--radius) - 4px);
+    overflow: hidden;
+    background-color: var(--secondary);
+}
+
+.item-image-wrapper img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.image-placeholder-list {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--muted-foreground);
+    font-size: 1.5rem;
+}
+
+.item-details {
+    padding: 0; /* Padding removido, controlado pelo gap */
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    min-width: 0; /* Previne que o texto empurre o layout */
+}
+
+.item-name {
+  font-weight: 500; /* Peso da fonte ajustado */
+  font-size: 1rem;
+  margin-bottom: 0.25rem;
+  line-height: 1.2;
+}
+
+.item-description {
+  color: var(--muted-foreground);
+  font-size: 0.85rem;
+  line-height: 1.4;
+  margin-bottom: 0.5rem;
+}
+
+.price {
+  font-weight: 700;
+  font-size: 1rem;
+  color: var(--foreground); /* Cor do preço ajustada */
+  margin-top: 0;
+}
+
+/* --- Títulos de Subcategoria --- */
+.submenu-section-title {
+    font-family: 'Roboto', sans-serif;
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--foreground);
+    margin-top: 1.5rem;
+    margin-bottom: 0.5rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 1px dashed var(--border);
+}
+.menu-section .submenu-section-title:first-of-type {
+    margin-top: 1rem;
+}
+
+/* --- Rodapé --- */
+.footer {
+  background: var(--foreground);
+  color: var(--background);
+  padding: 2.5rem 1rem;
+  margin-top: 2rem;
+  text-align: center;
+}
+
+.footer-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.5rem;
+}
+
+.footer-section h3 {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.25rem;
+  color: var(--primary);
+  margin-bottom: 0.5rem;
+}
+
+.footer-section p {
+  font-size: 0.9rem;
+  color: #d1d5db;
+}
+
+.footer-divider {
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  margin-top: 2rem;
+  padding-top: 1.5rem;
+  color: var(--muted-foreground);
+  font-size: 0.85rem;
+}
+
+.loading-placeholder {
+    text-align: center;
+    padding: 4rem 1rem;
+    font-size: 1.1rem;
+    color: var(--muted-foreground);
+}
+
+/* --- Estilos Happy Hour --- */
+.filter-btn.happy-hour-special:hover {
+    color: #07553b;
+}
+.filter-btn.happy-hour-special.active {
+    color: #07553b;
+    font-weight: 700;
+}
+.filter-btn.happy-hour-special.active::after {
+    background-color: #07553b;
+}
+
+.menu-section.happy-hour-section-special h2 {
+    color: #07553b;
+}
+.happy-hour-section-special .happy-hour-info {
+    background-color: #f7f8e8;
+    border: 1px solid #e0e6b6;
+    border-left: 5px solid #ced46a;
+    padding: 1.25rem;
+    margin-bottom: 2rem;
+    border-radius: var(--radius);
+}
+.happy-hour-info .happy-hour-header {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    margin-bottom: 1rem;
+}
+.happy-hour-header svg {
+    width: 28px;
+    height: 28px;
+    color: #07553b;
+}
+.happy-hour-header h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #07553b;
+    margin-bottom: 0;
+}
+.happy-hour-schedule {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    padding-left: 0.5rem;
+    margin-bottom: 1rem;
+}
+.schedule-item {
+    display: flex;
+    gap: 0.5rem;
+    font-size: 0.95rem;
+}
+.schedule-item .day {
+    font-weight: 700;
+    color: #4a5c4f;
+}
+.schedule-item .time {
+    color: var(--foreground);
+}
+.happy-hour-info .disclaimer {
+    font-size: 0.85rem;
+    font-style: italic;
+    color: var(--muted-foreground);
+    margin-top: 1rem;
+    padding-top: 1rem;
+    border-top: 1px solid #e0e6b6;
+}
+
+/* --- Ajustes para telas maiores (Tablet/Desktop) --- */
+@media (min-width: 768px) {
+    .menu-controls {
+        margin: 0;
+        padding: 1.5rem;
+        border-radius: var(--radius);
+        margin-bottom: 1.5rem;
+    }
+    .menu-section .items-grid {
+        /* Exibe 2 colunas em telas maiores */
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (min-width: 1024px) {
+    .menu-section .items-grid {
+        /* Exibe 3 colunas em telas bem grandes */
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+/* --- Estilos para Assinatura no Rodapé --- */
+.footer-divider {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+}
+
+.dev-signature {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.9rem;
+    color: var(--muted-foreground);
+}
+
+.footer-logo {
+    height: 24px; /* Ajuste a altura do seu logo conforme necessário */
+    width: auto;
+}
