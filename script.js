@@ -165,7 +165,7 @@ document.addEventListener('DOMContentLoaded', function() {
         const descriptionHTML = product.description ? `<p class="item-description">${product.description}</p>` : '';
         const imageHTML = product.image_url 
             ? `<img src="${product.image_url}" alt="${product.name}" class="item-image-list">` 
-            : `<div class="image-placeholder-list"><span>📸</span></div>`;
+            : `<div class="image-placeholder-list"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79a9 9 0 1 1-8.51-10.63"/><path d="M14.31 2.16 21 8.84l-6.69 6.69a2.82 2.82 0 0 1-4 0L2.16 9.31a2.82 2.82 0 0 1 0-4l6.69-6.69a2.82 2.82 0 0 1 4 0Z"/><path d="m11.31 5.84.39-.39"/><path d="m5.84 11.31.39-.39"/><path d_ignored="m16.16 8 .39-.39"/><path d_ignored="m8 16.16.39-.39"/></svg></div>`;
 
         return `
             <div class="menu-item">

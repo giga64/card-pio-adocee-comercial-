@@ -1,4 +1,4 @@
-/* Integra Bar & Restaurante Design System */
+/* Integra Bar & Restaurante Design System (Adaptado para Adocee Doceria) */
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&family=Playfair+Display:wght@600;700&display=swap');
 
 /* Reset e Variáveis Globais */
@@ -61,7 +61,40 @@ body {
   filter: brightness(0) invert(1);
 }
 
-/* --- Filtros e Busca (COM NOVO ESTILO) --- */
+/* --- Informações Comerciais --- */
+.commercial-info {
+    background-color: var(--card);
+    padding: 1.5rem;
+    margin-bottom: 1.5rem;
+    border-radius: var(--radius);
+    box-shadow: var(--shadow-md);
+    border: 1px solid var(--border);
+    font-size: 0.95rem;
+    line-height: 1.7;
+}
+
+.commercial-info h3 {
+    font-family: 'Playfair Display', serif;
+    color: var(--primary);
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+}
+
+.commercial-info p {
+    margin-bottom: 1rem;
+}
+
+.commercial-info .contact-info {
+    margin-top: 1.5rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid var(--border);
+}
+
+.commercial-info .contact-info strong {
+    color: var(--foreground);
+}
+
+/* --- Filtros e Busca --- */
 .menu-controls {
     background-color: var(--card);
     padding: 1rem;
@@ -84,62 +117,54 @@ body {
 
 .filter-container {
     display: flex;
-    gap: 1.5rem; /* Aumentamos o espaço entre os botões */
+    gap: 1.5rem;
     overflow-x: auto;
-    padding-bottom: 0; /* Removemos o padding de baixo */
-    border-bottom: 1px solid var(--border); /* Linha cinza de fundo */
+    padding-bottom: 0;
+    border-bottom: 1px solid var(--border);
     -ms-overflow-style: none;
     scrollbar-width: none;
-    overscroll-behavior-y: contain; /* Adicione esta linha */
-    touch-action: pan-x; /* Adicione esta nova linha */
+    overscroll-behavior-y: contain;
+    touch-action: pan-x;
 }
 .filter-container::-webkit-scrollbar {
     display: none;
 }
 
-/* NOVO ESTILO DOS BOTÕES DE FILTRO */
 .filter-btn {
-    /* Reset dos estilos antigos */
     background-color: transparent;
     border: none;
     border-radius: 0;
     box-shadow: none;
-
-    /* Novos estilos */
     padding: 0.75rem 0.25rem;
     cursor: pointer;
     font-size: 0.9rem;
     font-weight: 500;
     white-space: nowrap;
     transition: color 0.2s ease-in-out;
-    color: var(--muted-foreground); /* Cor padrão do texto (cinza) */
+    color: var(--muted-foreground);
     text-transform: uppercase;
-    position: relative; /* Necessário para a barrinha */
+    position: relative;
 }
 
 .filter-btn:hover {
-    color: var(--primary); /* Ao passar o mouse, fica vermelho */
+    color: var(--primary);
 }
 
 .filter-btn.active {
-    /* Reset dos estilos antigos */
     transform: none; 
     background-color: transparent;
     box-shadow: none;
-    
-    /* Novo estilo do botão ativo */
-    color: var(--foreground); /* Texto fica mais escuro */
+    color: var(--foreground);
 }
 
-/* A BARRINHA INDICADORA */
 .filter-btn.active::after {
     content: '';
     position: absolute;
-    bottom: -1px; /* Posiciona sobre a borda cinza */
+    bottom: -1px;
     left: 0;
     width: 100%;
-    height: 3px; /* Espessura da barra */
-    background-color: var(--primary); /* Cor da barra (vermelho) */
+    height: 3px;
+    background-color: var(--primary);
 }
 
 /* --- Cardápio --- */
@@ -151,11 +176,11 @@ body {
 }
 
 .menu-section {
-  background: var(--card);
-  padding: 1.5rem;
-  border-radius: var(--radius);
-  box-shadow: var(--shadow-md);
-  border: 1px solid var(--border);
+  background-color: transparent; /* Fundo da seção fica transparente */
+  padding: 0; /* Remove padding da seção */
+  border-radius: 0;
+  box-shadow: none; /* Remove sombra da seção */
+  border: none; /* Remove borda da seção */
 }
 
 .menu-section h2 {
@@ -168,35 +193,44 @@ body {
   border-bottom: 2px solid var(--border);
 }
 
+/* --- ALTERAÇÕES DE ELEGÂNCIA APLICADAS AQUI --- */
+
 .menu-section .items-grid {
     display: grid;
     grid-template-columns: 1fr;
-    gap: 1rem; /* Espaçamento menor entre os itens */
+    /* AUMENTANDO O ESPAÇAMENTO: Mais espaço entre os cards no celular */
+    gap: 1.5rem; 
 }
 
-/* LAYOUT COMPACTO DO ITEM DO CARDÁPIO */
+/* LAYOUT ELEGANTE DO ITEM DO CARDÁPIO */
 .menu-item {
     display: flex;
-    flex-direction: row; /* Imagem sempre ao lado */
+    flex-direction: row;
     align-items: center;
-    gap: 1rem;
-    padding: 0.75rem;
-    border: 1px solid var(--border);
+    /* ESPAÇAMENTO INTERNO: Mais "respiro" dentro do card */
+    gap: 1.25rem;
+    padding: 1rem;
+    /* ESTILO DO CARD: Borda mais suave e sombra mais sutil */
+    border: 1px solid #eef4f4; 
     border-radius: var(--radius);
-    transition: var(--transition);
+    background-color: var(--card); /* Garante o fundo branco */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+    /* TRANSIÇÃO SUAVE: Efeito elegante ao passar o mouse */
+    transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
 }
 .menu-item:hover {
-    border-color: #ddd;
-    box-shadow: var(--shadow-sm);
+    /* EFEITO HOVER: Eleva o card sutilmente */
+    transform: translateY(-4px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
 }
 
 .item-image-wrapper {
-    width: 100px;  /* Largura fixa e menor */
-    height: 100px; /* Altura fixa e menor */
-    flex-shrink: 0; /* Impede que a imagem encolha */
+    width: 100px;
+    height: 100px;
+    flex-shrink: 0;
     border-radius: calc(var(--radius) - 4px);
     overflow: hidden;
-    background-color: var(--secondary);
+    background-color: #f7f9f9; /* Fundo do placeholder mais suave */
 }
 
 .item-image-wrapper img {
@@ -205,46 +239,53 @@ body {
     object-fit: cover;
 }
 
+/* PLACEHOLDER ELEGANTE: Estilo para o novo ícone SVG */
 .image-placeholder-list {
     width: 100%;
     height: 100%;
     display: flex;
     align-items: center;
     justify-content: center;
-    color: var(--muted-foreground);
-    font-size: 1.5rem;
+    color: #cbd5e1; /* Cor do ícone mais suave */
+}
+.image-placeholder-list svg {
+    width: 40px;
+    height: 40px;
 }
 
 .item-details {
-    padding: 0; /* Padding removido, controlado pelo gap */
+    padding: 0;
     display: flex;
     flex-direction: column;
     flex: 1;
-    min-width: 0; /* Previne que o texto empurre o layout */
+    min-width: 0;
 }
 
+/* TIPOGRAFIA REFINADA */
 .item-name {
-  font-weight: 500; /* Peso da fonte ajustado */
+  font-weight: 600; /* Um pouco mais de destaque */
   font-size: 1rem;
+  color: #334155; /* Cor um pouco menos dura que o preto puro */
   margin-bottom: 0.25rem;
-  line-height: 1.2;
+  line-height: 1.3;
 }
 
 .item-description {
   color: var(--muted-foreground);
   font-size: 0.85rem;
-  line-height: 1.4;
-  margin-bottom: 0.5rem;
+  line-height: 1.5; /* Mais espaço entre as linhas da descrição */
+  margin-bottom: 0.75rem; /* Mais espaço antes do preço */
 }
 
 .price {
   font-weight: 700;
-  font-size: 1rem;
-  color: var(--foreground); /* Cor do preço ajustada */
-  margin-top: 0;
+  font-size: 1.1rem; /* Preço um pouco maior */
+  color: var(--primary); /* Preço com a cor primária da marca */
+  margin-top: auto; /* Alinha o preço na base do card */
 }
 
-/* --- Títulos de Subcategoria --- */
+/* --- FIM DAS ALTERAÇÕES DE ELEGÂNCIA --- */
+
 .submenu-section-title {
     font-family: 'Roboto', sans-serif;
     font-size: 1.1rem;
@@ -294,6 +335,10 @@ body {
   padding-top: 1.5rem;
   color: var(--muted-foreground);
   font-size: 0.85rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
 }
 
 .loading-placeholder {
@@ -301,104 +346,6 @@ body {
     padding: 4rem 1rem;
     font-size: 1.1rem;
     color: var(--muted-foreground);
-}
-
-/* --- Estilos Happy Hour --- */
-.filter-btn.happy-hour-special:hover {
-    color: #07553b;
-}
-.filter-btn.happy-hour-special.active {
-    color: #07553b;
-    font-weight: 700;
-}
-.filter-btn.happy-hour-special.active::after {
-    background-color: #07553b;
-}
-
-.menu-section.happy-hour-section-special h2 {
-    color: #07553b;
-}
-.happy-hour-section-special .happy-hour-info {
-    background-color: #f7f8e8;
-    border: 1px solid #e0e6b6;
-    border-left: 5px solid #ced46a;
-    padding: 1.25rem;
-    margin-bottom: 2rem;
-    border-radius: var(--radius);
-}
-.happy-hour-info .happy-hour-header {
-    display: flex;
-    align-items: center;
-    gap: 0.75rem;
-    margin-bottom: 1rem;
-}
-.happy-hour-header svg {
-    width: 28px;
-    height: 28px;
-    color: #07553b;
-}
-.happy-hour-header h3 {
-    font-family: 'Playfair Display', serif;
-    font-size: 1.5rem;
-    font-weight: 700;
-    color: #07553b;
-    margin-bottom: 0;
-}
-.happy-hour-schedule {
-    display: flex;
-    flex-direction: column;
-    gap: 0.5rem;
-    padding-left: 0.5rem;
-    margin-bottom: 1rem;
-}
-.schedule-item {
-    display: flex;
-    gap: 0.5rem;
-    font-size: 0.95rem;
-}
-.schedule-item .day {
-    font-weight: 700;
-    color: #4a5c4f;
-}
-.schedule-item .time {
-    color: var(--foreground);
-}
-.happy-hour-info .disclaimer {
-    font-size: 0.85rem;
-    font-style: italic;
-    color: var(--muted-foreground);
-    margin-top: 1rem;
-    padding-top: 1rem;
-    border-top: 1px solid #e0e6b6;
-}
-
-/* --- Ajustes para telas maiores (Tablet/Desktop) --- */
-@media (min-width: 768px) {
-    .menu-controls {
-        margin: 0;
-        padding: 1.5rem;
-        border-radius: var(--radius);
-        margin-bottom: 1.5rem;
-    }
-    .menu-section .items-grid {
-        /* Exibe 2 colunas em telas maiores */
-        grid-template-columns: repeat(2, 1fr);
-    }
-}
-
-@media (min-width: 1024px) {
-    .menu-section .items-grid {
-        /* Exibe 3 colunas em telas bem grandes */
-        grid-template-columns: repeat(3, 1fr);
-    }
-}
-
-/* --- Estilos para Assinatura no Rodapé --- */
-.footer-divider {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 1rem;
 }
 
 .dev-signature {
@@ -410,38 +357,27 @@ body {
 }
 
 .footer-logo {
-    height: 24px; /* Ajuste a altura do seu logo conforme necessário */
+    height: 24px;
     width: auto;
 }
-/* Estilos para a nova caixa de informações comerciais */
-.commercial-info {
-    background-color: var(--card);
-    padding: 1.5rem;
-    margin-bottom: 1.5rem;
-    border-radius: var(--radius);
-    box-shadow: var(--shadow-md);
-    border: 1px solid var(--border);
-    font-size: 0.95rem;
-    line-height: 1.7;
+
+/* --- Ajustes para telas maiores (Tablet/Desktop) --- */
+@media (min-width: 768px) {
+    .menu-controls {
+        margin: 0;
+        padding: 1.5rem;
+        border-radius: var(--radius);
+        margin-bottom: 1.5rem;
+    }
+    /* APLICA AS COLUNAS APENAS NO GRID DOS ITENS */
+    .menu-section .items-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
 }
 
-.commercial-info h3 {
-    font-family: 'Playfair Display', serif;
-    color: var(--primary);
-    font-size: 1.5rem;
-    margin-bottom: 1rem;
-}
-
-.commercial-info p {
-    margin-bottom: 1rem;
-}
-
-.commercial-info .contact-info {
-    margin-top: 1.5rem;
-    padding-top: 1.5rem;
-    border-top: 1px solid var(--border);
-}
-
-.commercial-info .contact-info strong {
-    color: var(--foreground);
+@media (min-width: 1024px) {
+    /* APLICA AS COLUNAS APENAS NO GRID DOS ITENS */
+    .menu-section .items-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
 }
