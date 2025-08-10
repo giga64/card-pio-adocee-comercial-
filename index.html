@@ -13,36 +13,45 @@
     </header>
 
     <div class="container">
-    <div class="hero-section">
-        <h1>Bem-vindo à Adocee Doceria</h1>
-        <p>Transforme cada momento em um sabor inesquecível!</p>
-    </div>
-    <div class="commercial-info">
-        <h3>Sobremesas que Encantam e Geram Lucro</h3>
-        <p>Na Adocee Doceria, unimos qualidade artesanal e oportunidades de negócio. 
-        Oferecemos uma linha completa de sobremesas irresistíveis, com preços especiais para revenda, 
-        garantindo à sua empresa um retorno de <strong>70% a 100%</strong> de lucro.</p>
-        
-        <p>Disponibilizamos carrinhos e expositores elegantes que valorizam seus produtos e chamam a atenção dos clientes, ideais para mercadinhos, lojas e restaurantes.</p>
-        
-        <p>Cada doce é preparado com ingredientes selecionados, combinando tradição e criatividade para encantar paladares e aumentar suas vendas.</p>
-        
-        <div class="contact-info">
-            <p><strong>Contato Comercial (WhatsApp):</strong> (84) 99990-5272</p>
-            <p><strong>Informações:</strong> Jonathas: (84) 98802-0642 | Sharlene: (84) 99933-9959</p>
-            <p><strong>Instagram:</strong> <a href="https://instagram.com/adoceedoceriaecreperia" target="_blank">@adoceedoceriaecreperia</a></p>
-        </div>
-
-        <div class="menu-controls">
-            <div class="search-container">
-                <input type="text" id="searchInput" placeholder="Buscar no cardápio...">
+        <div class="intro-panel">
+            <div class="welcome-header">
+                <h1>Bem-vindo à Adocee Doceria</h1>
+                <p>Transforme cada momento em um sabor inesquecível!</p>
             </div>
-             <div class="filter-container" id="filterContainerDesktop"></div>
-        </div>
 
-        <div id="menuContent">
-            <div class="loading-placeholder"><p>Carregando delícias...</p></div>
+            <div class="commercial-text">
+                <h2>Sobremesas que Encantam e Geram Lucro</h2>
+                <p>Na Adocee Doceria, unimos qualidade artesanal e oportunidades de negócio. Oferecemos uma linha completa de sobremesas irresistíveis, com preços especiais para revenda, garantindo à sua empresa um retorno de <strong>70% a 100%</strong> de lucro.</p>
+                <p>Disponibilizamos carrinhos e expositores elegantes que valorizam seus produtos e chamam a atenção dos clientes, ideais para mercadinhos, lojas e restaurantes.</p>
+                <p>Cada doce é preparado com ingredientes selecionados, combinando tradição e criatividade para encantar paladares e aumentar suas vendas.</p>
+            </div>
+
+            <div class="contact-section">
+                 <div class="contact-details">
+                    <strong>Contato Comercial:</strong> (84) 99990-5272 <br>
+                    <strong>Informações:</strong> Jonathas: (84) 98802-0642 | Sharlene: (84) 99933-9959
+                </div>
+                <div class="contact-buttons">
+                    <a href="https://wa.me/5584999905272" target="_blank" class="contact-button whatsapp">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path></svg>
+                        WhatsApp
+                    </a>
+                    <a href="https://instagram.com/adoceedoceriaecreperia" target="_blank" class="contact-button instagram">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
+                        Instagram
+                    </a>
+                </div>
+            </div>
+
+            <div class="menu-controls">
+                <div class="search-container">
+                    <input type="text" id="searchInput" placeholder="Buscar no cardápio...">
+                </div>
+                <div class="filter-container" id="filterContainerDesktop"></div>
+            </div>
         </div>
+        <div id="menuContent">
+            </div>
     </div>
 
     <footer class="footer">
@@ -63,7 +72,7 @@
             </div>
         </div>
     </footer>
-
+    
     <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
     <script src="script.js"></script>
 </body>
