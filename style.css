@@ -402,4 +402,8 @@ body {
     .contact-button {
         justify-content: center;
     }
+    /* NOVO: Ajusta o tamanho do título para caber em uma linha no celular */
+    .welcome-header h1 {
+        font-size: 1.75rem; /* Reduz um pouco o tamanho da fonte do título principal */
+    }
 }
